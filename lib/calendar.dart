@@ -33,6 +33,14 @@ class _CalendarScreenState extends State<CalendarScreen> {
             selectedDayPredicate: (day) {
               return isSameDay(_selectedDay, day);
             },
+            onDaySelected: (selectedDay, focusedDay) {
+              if (!isSameDay(_selectedDay, selectedDay)) {
+                setState(() {
+                  _selectedDay = selectedDay;
+                  _focusedDay = focusedDay;
+                });
+              }
+            }
         ),
       ),
     );
